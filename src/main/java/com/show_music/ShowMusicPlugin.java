@@ -1,12 +1,12 @@
 package com.show_music;
 
-import com.google.inject.Provides;
+// import com.google.inject.Provides;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.events.*;
 import net.runelite.api.widgets.Widget;
-import net.runelite.client.config.ConfigManager;
+// import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
@@ -26,8 +26,8 @@ public class ShowMusicPlugin extends Plugin
 	@Inject
 	private Client client;
 
-	@Inject
-	private ShowMusicConfig config;
+//	@Inject
+//	private ShowMusicConfig config;
 
 	@Inject
 	private ChatMessageManager chatMessageManager;
@@ -59,9 +59,9 @@ public class ShowMusicPlugin extends Plugin
 		}
 	}
 
-	@Provides
-	ShowMusicConfig provideConfig(ConfigManager configManager)
-	{
-		return configManager.getConfig(ShowMusicConfig.class);
-	}
+//	@Provides
+//	ShowMusicConfig provideConfig(ConfigManager configManager)
+//	{
+//		return configManager.getConfig(ShowMusicConfig.class);
+//	}
 }
