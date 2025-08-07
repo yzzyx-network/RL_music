@@ -23,7 +23,7 @@ class ShowMusicOverlay extends OverlayPanel
     {
         super(plugin);
         this.client = client;
-        setPosition(OverlayPosition.DYNAMIC);
+        setPosition(OverlayPosition.TOP_LEFT);
         setMovable(true);
         setResizable(false);
         setSnappable(true);
@@ -37,7 +37,8 @@ class ShowMusicOverlay extends OverlayPanel
         if(config.displayToggle() != DisplayMode.Overlay) return null;
         var musicWidget = client.getWidget(MUSIC_TRACK_WIDGET_ID);
         if(musicWidget == null) return null;
-        final var currentTrackString = "Current Track :" + musicWidget.getText();
+        panelComponent.getChildren().clear(); // reduce stacking
+        final var currentTrackString = "Current Track: " + musicWidget.getText();
         if(client.getMusicVolume() == 0 && config.muteHide()) return null;
         panelComponent.getChildren().add((TitleComponent.builder())
                 .text(currentTrackString)
