@@ -1,47 +1,30 @@
-//package com.show_music;
-//
-//import net.runelite.client.config.Config;
-//import net.runelite.client.config.ConfigGroup;
-//import net.runelite.client.config.ConfigItem;
-//
-//import java.awt.*;
-//
-////@ConfigGroup("example")
-////public interface ShowMusicConfig extends Config
-////{
-////	@ConfigItem(
-////		keyName = "greeting",
-////		name = "Welcome Greeting",
-////		description = "The message to show to the user when they login"
-////	)
-////	default String greeting()
-////	{
-////		return "Hello";
-////	}
-////}
-//
-//@ConfigGroup("show_music")
-//public interface ShowMusicConfig extends Config
-//{
-//
-////	@ConfigItem(
-////			keyName = "trackColour",
-////			name = "Track Colour",
-////			description = "The colour of the text for the music track",
-////			position = 0
-////	)
-////	default Color trackColour() {
-////		return Color.BLUE;
-////	}
-//
-////	@ConfigItem(
-////			keyName = "displayLastTrack",
-////			name = "Last Track",
-////			description = "Include the previous track in the message.",
-////			position = 1
-////	)
-////	default boolean displayLastTrack() {
-////		return true;
-////	}
-//}
-//
+package com.show_music;
+
+import com.show_music.config.DisplayMode;
+import net.runelite.client.config.Config;
+import net.runelite.client.config.ConfigGroup;
+import net.runelite.client.config.ConfigItem;
+
+@ConfigGroup("musicOverlay")
+public interface ShowMusicConfig  extends Config {
+    @ConfigItem(
+            keyName = "muteHide",
+            name = "Hide on Mute",
+            description = "If the music volume is muted, the text/overlay will be hidden.",
+            position = 1
+    )
+    default boolean muteHide()
+    {
+        return false;
+    }
+
+    @ConfigItem(
+            keyName = "displayToggle",
+            name = "Display",
+            description = "Toggles display between overlay and chat box",
+            position = 2
+    )
+    default DisplayMode displayToggle(){
+        return DisplayMode.Overlay;
+    }
+}
