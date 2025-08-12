@@ -62,7 +62,7 @@ public class ShowMusicPlugin extends Plugin
 
     @Subscribe
     public void onConfigChanged(ConfigChanged event){
-        if(!event.getGroup().equals("musicOverlay") && !event.getKey().equals("displayToggle")) return; // nothing to do if it's not a displayToggle change for our plugin
+        if(!event.getGroup().equals("musicOverlay") || !event.getKey().equals("displayToggle")) return; // nothing to do if it's not a displayToggle change for our plugin
         overlayManager.removeIf(o -> o instanceof ShowMusicOverlay); // remove if there is already an instance of ShowMusicOverlay
         if(Objects.equals(event.getNewValue(), "Overlay")) overlayManager.add(overlay); // if going from Text > Overlay add to overlayManager
     }
